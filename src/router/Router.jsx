@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import LoginHeader from "../components/LoginHeader/LoginHeader";
 import Init from "../pages/Init/Init";
 import Recipes from "../pages/Recipes/Recipes";
+import MenuPlanner from "../pages/MenuPlanner/MenuPlanner";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/recipes",
         element: <Recipes/>
+      },
+      {
+        path:"/menuplanner",
+        element:<MenuPlanner/>
       }
     ],
   },

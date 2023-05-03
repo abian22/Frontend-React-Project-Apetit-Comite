@@ -128,8 +128,8 @@ function Recipes() {
   function displayRecipes () {
     return recetas.map(r => {
       return (
-        <Grid item xs={12} sm={6} md ={4} xl={3}>
-        <Card sx={{ maxWidth: "345px", padding: "10px", margin: "10px", flexDirection: "row", }}>
+        <Grid item xs={12} sm={6} md ={4}>
+        <Card sx={{ maxWidth: "345px", padding: "10px", margin: "10px", flexDirection: "row" }}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -137,10 +137,10 @@ function Recipes() {
             image={r.imagen}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" textAlign="center" component="div">
               {r.nombre}
             </Typography>
-            <Typography variant="body2" sx={{color:"black"}}>
+            <Typography variant="h6" fontFamily= "Blinker" sx={{color:"black"}}>
            {r.descripcion}
             </Typography>
           </CardContent>
@@ -159,9 +159,11 @@ function Recipes() {
     <>
     <div  style={{width:"100%", height:"auto"}}>
     <Header/>
+    <div className='fondoRecipes'>
     <Grid container sx={{  justifyContent: "start", flexWrap: "wrap" }}>
     {displayRecipes()}
     </Grid>
+     </div>
      </div>
        </>
 
