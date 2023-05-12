@@ -10,9 +10,10 @@ export default function Footer() {
   return (
     <Box
       sx={{
+        display:"flex",
         width: "100%",
-        position: "static",
-        bottom: "0",
+        position: "relative",
+        bottom: "0px",
       }}
     >
       <AppBar
