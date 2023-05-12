@@ -37,77 +37,67 @@ const {id} = useParams()
 
     function displayRecipe() {
         return (
-            <Grid
-        item
-        xs={12}
-        sm={6}
-        md={4}
-        xl={3}
-      >
-        <Card
-          sx={{
-            maxWidth: "800px",
-            padding: "10px",
-            margin: "10px",
-            flexDirection: "row",
-          }}
-        >
-          <CardContent>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
+          <Grid item xs={12} sm={6} md={4} xl={3}>
+            <Card
+              sx={{
+                maxWidth: "800px",
+                padding: "10px",
+                margin: "10px",
+                flexDirection: "row",
+              }}
             >
-              Añadir Receta
-            </Typography>
-            <TextField
-              id="name"
-              label="Nombre de la Receta"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              margin="normal"
-              fullWidth
-            />
-            <TextField
-              id="img"
-              label="URL de la imagen"
-              value={img}
-              onChange={(e) => setImg(e.target.value)}
-              margin="normal"
-              fullWidth
-            />
-            <TextField
-              id="description"
-              label="Descripción de la Receta"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              margin="normal"
-              fullWidth
-            />
-            <TextField
-              id="instruction"
-              label="Instrucciones de la Receta"
-              value={instruction}
-              onChange={(e) => setInstruction(e.target.value)}
-              margin="normal"
-              fullWidth
-              multiline
-              rows={4}
-            />
-            <CardActions sx={{display:"flex", justifyContent:"center"}}>
-            <Button
-              variant="contained"
-              type="submit"
-              onClick={editRecipe}
-              sx={{ backgroundColor: "black"}}
-            >
-              Editar
-            </Button>
-            </CardActions>
-          </CardContent>
-        </Card>
-      </Grid>
-        )
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Edit Recipe
+                </Typography>
+                <TextField
+                  id="name"
+                  label="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  margin="normal"
+                  fullWidth
+                />
+                <TextField
+                  id="img"
+                  label="URL image"
+                  value={img}
+                  onChange={(e) => setImg(e.target.value)}
+                  margin="normal"
+                  fullWidth
+                />
+                <TextField
+                  id="description"
+                  label="Description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  margin="normal"
+                  fullWidth
+                />
+                <TextField
+                  id="instruction"
+                  label="Instruction"
+                  value={instruction}
+                  onChange={(e) => setInstruction(e.target.value)}
+                  margin="normal"
+                  fullWidth
+                  multiline
+                  rows={4}
+                />
+                <CardActions>
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    onClick={editRecipe}
+                    sx={{ backgroundColor: "#12BAD0" }}
+                  >
+                    Edit
+                  </Button>
+                </CardActions>
+              </CardContent>
+            </Card>
+          </Grid>
+        );
     }
   return (
     <>

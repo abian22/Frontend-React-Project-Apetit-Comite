@@ -77,7 +77,7 @@ function AddRecipeAdmin() {
               variant="contained"
               type="submit"
               onClick={addRecipe}
-              sx={{ backgroundColor: "black" }}
+              sx={{ backgroundColor: "#12BAD0" }}
             >
               ADD
             </Button>

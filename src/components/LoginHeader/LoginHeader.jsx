@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import HeaderLogo from "../../assets/HEADER_LOGO.svg";
 import { Link, useNavigate } from "react-router-dom";
+import './LoginHeader.css'
 
 export default function LoginHeader() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -99,11 +100,28 @@ export default function LoginHeader() {
               ))}
             </Menu>
           </Box>
-          <div className="iconContainer">
-            <img className="icon" src={HeaderLogo} />
-          </div>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-          </Box>
+          <Link to="/">
+            <div className="iconContainer">
+              <img className="icon" src={HeaderLogo} />
+            </div>
+          </Link>
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          ></Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
           <Button>
             <Link
               to="/signUp"
