@@ -74,6 +74,8 @@ function MenuPlanner() {
                 minWidth: "60%",
                 height: "110%",
                 display: "flex",
+                marginBottom: "20px",
+
               }}
             >
               <Box sx={{ display: "flex", height: "100%" }}>

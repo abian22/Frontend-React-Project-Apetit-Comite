@@ -43,6 +43,8 @@ function Recipes() {
               padding: "10px",
               margin: "10px",
               flexDirection: "row",
+              marginBottom: "50px",
+              minHeight: "400px"
             }}
           >
             <CardActionArea component={RouterLink} to={`${r.id}`}>
@@ -53,7 +55,7 @@ function Recipes() {
                 <Typography gutterBottom variant="h5" component="div">
                   {r.name}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "black" }}>
+                <Typography variant="body2" sx={{ color: "black", paddingTop:"20px" }}>
                   {r.description}
                 </Typography>
               </CardContent>

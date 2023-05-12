@@ -40,7 +40,7 @@ function AddRecipeMenuPlanner() {
   return (
     <React.Fragment>
       <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
-        <Button onClick={handleToggle}>Add Recipe</Button>
+        <Button onClick={handleToggle} >Add Recipe</Button>
         <Button
           size="small"
           aria-controls={open ? 'split-button-menu' : undefined}

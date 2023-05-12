@@ -139,7 +139,7 @@ function Header() {
               ))}
             </Menu>
           </Box>
-          <div className="iconContainer">
+          <div className="iconContainer" >
             <img className="icon" src={HeaderLogo} />
           </div>
           <Typography

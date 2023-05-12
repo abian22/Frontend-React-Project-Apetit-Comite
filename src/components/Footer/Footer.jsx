@@ -12,7 +12,9 @@ export default function Footer() {
       sx={{
         display:"flex",
         width: "100%",
-        position: "relative"
+        position: "absolute",
+        bottom:"0",
+        
       }}
     >
       <AppBar
@@ -27,7 +29,7 @@ export default function Footer() {
               width: "120%",
               textAlign: "center",
               color: "black",
-              fontSize: "70%",
+              fontSize: "4%",
             }}
           >
 

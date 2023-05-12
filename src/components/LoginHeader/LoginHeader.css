@@ -1,5 +1,15 @@
-.Login-container{
-    display: table-row;
-    border:solid
-    
+.icon {
+    height: 110px;
+    min-height: 70px;
+    align-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+.iconContainer {
+    height: 80px;
+    align-items: content;
+    text-align: center;
+    display: flex;
 }

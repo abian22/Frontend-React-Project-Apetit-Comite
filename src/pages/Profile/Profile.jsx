@@ -106,7 +106,15 @@ export default function Profile() {
 
   function render() {
     return (
-      <Card sx={{ width: "90%", backgroundColor: "#FFFFE0", border:"2px solid", borderRadius:"10px" }} raised={true}>
+      <Card
+        sx={{
+          width: "90%",
+          backgroundColor: "#FFFFE0",
+          border: "2px solid",
+          borderRadius: "10px",
+        }}
+        raised={true}
+      >
         <CardHeader title="PROFILE"></CardHeader>
 
         <CardContent>
@@ -236,22 +244,15 @@ export default function Profile() {
         <Divider />
 
         <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
-          {/* <Button
-            onClick={() => navigate("/home")}
-            size="small"
-            color="secondary"
-            variant="contained"
-            startIcon={<ArrowBackIcon />}
-            sx={{ marginRight: "1vw" }}
-          >
-            BACK
-          </Button> */}
-
           <Button
             variant="contained"
             color="error"
             startIcon={<DeleteIcon />}
-            sx={{ marginRight: "1vw" }}
+            sx={{
+              marginRight: "1vw",
+              height: "30px",
+              backgroundColor: "#ED3A53",
+            }}
             onClick={() => {
               deleteUser();
               navigate("/home");
@@ -263,9 +264,9 @@ export default function Profile() {
             <Button
               size="small"
               onClick={handleSaveChanges}
-              color="primary"
               variant="contained"
               startIcon={<EditIcon />}
+              sx={{ backgroundColor: "#12BAD0" }}
             >
               EDIT
             </Button>

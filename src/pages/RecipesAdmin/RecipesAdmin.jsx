@@ -45,6 +45,7 @@ function RecipesAdmin() {
               padding: "10px",
               margin: "10px",
               flexDirection: "row",
+              marginBottom: "40px",
             }}
           >
             <CardActionArea component={RouterLink} to={`/home/recipes/${r.id}`}>
@@ -64,13 +65,13 @@ function RecipesAdmin() {
               <Link to={`${r.id}`}>
                 <Tooltip title="Edit">
                   <Button>
-                    <EditIcon sx={{ color: "12BAD0" }} />
+                    <EditIcon sx={{ color: "#12BAD0" }} />
                   </Button>
                 </Tooltip>
               </Link>
               <Tooltip title="Delete">
                 <Button onClick={() => deleteOneRecipe(r.id)}>
-                  <CancelIcon sx={{ color: "red" }} />
+                  <CancelIcon sx={{ color: "#ED3A53" }} />
                 </Button>
               </Tooltip>
             </CardActions>
