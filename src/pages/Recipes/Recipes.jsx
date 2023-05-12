@@ -10,7 +10,6 @@ import {
   Grid,
   Tooltip,
 } from "@mui/material";
-import CancelIcon from "@mui/icons-material/Cancel";
 import { deleteRecipe, getAllRecipes } from "../../Services/recipeServices";
 import { Link as RouterLink } from "react-router-dom";
 import AddMenuPlannerButton from "../../components/AddMenuPlannerButton/AddMenuPlannerButton";
@@ -46,24 +45,6 @@ function Recipes() {
               flexDirection: "row",
             }}
           >
-            <Tooltip title="Delete">
-              <Button
-                sx={{
-                  color: "black",
-                  display: "flex",
-                  position: "flex-end",
-                  textAlign: "flex-end",
-                  alignContent: "flex-end",
-                  justifyContent: "flex-end",
-                  marginLeft: "0vw",
-                }}
-                onClick={(e) => {
-                  deleteOneRecipe(r.id);
-                }}
-              >
-                <CancelIcon />
-              </Button>
-            </Tooltip>
             <CardActionArea component={RouterLink} to={`${r.id}`}>
               <Tooltip title="More details">
                 <CardMedia component="img" height="140" image={r.img} />
