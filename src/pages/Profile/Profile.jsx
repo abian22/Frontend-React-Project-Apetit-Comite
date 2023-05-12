@@ -106,7 +106,7 @@ export default function Profile() {
 
   function render() {
     return (
-      <Card sx={{ width: "90%", backgroundColor: blue[100] }} raised={true}>
+      <Card sx={{ width: "90%", backgroundColor: "#FFFFE0", border:"2px solid", borderRadius:"10px" }} raised={true}>
         <CardHeader title="PROFILE"></CardHeader>
 
         <CardContent>

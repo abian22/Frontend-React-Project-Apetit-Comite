@@ -12,8 +12,7 @@ export default function Footer() {
       sx={{
         display:"flex",
         width: "100%",
-        position: "relative",
-        bottom: "0px",
+        position: "relative"
       }}
     >
       <AppBar

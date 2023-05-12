@@ -79,7 +79,7 @@ export default function SignUp() {
         sx={{
           width: "90%",
           backgroundColor: "#FFFFE0",
-          border: "solid",
+          border:"2px solid",
           borderRadius: "10px",
           maxWidth: "70vw",
           top: "20px",
