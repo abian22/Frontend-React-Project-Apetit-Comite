@@ -31,7 +31,7 @@ function RecipesAdmin() {
 
   const deleteOneRecipe = async (id) => {
     const query = await deleteRecipe(id);
-    getRecipes();
+     getRecipes();
   };
 
   function displayRecipes() {
@@ -69,7 +69,7 @@ function RecipesAdmin() {
                 </Tooltip>
               </Link>
               <Tooltip title="Delete">
-                <Button onClick={deleteOneRecipe(r.id)}>
+                <Button onClick={() => deleteOneRecipe(r.id)}>
                   <CancelIcon sx={{ color: "black" }} />
                 </Button>
               </Tooltip>
