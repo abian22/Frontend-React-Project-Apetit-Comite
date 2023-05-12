@@ -3,15 +3,22 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions, Grid, Tooltip } from "@mui/material";
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Grid,
+  Tooltip,
+} from "@mui/material";
 import { getAllRecipes } from "../../Services/recipeServices";
-import { Link, Link as RouterLink, useNavigate } from "react-router-dom";
-import AddMenuPlannerButton from "../../components/AddMenuPlannerButton/AddMenuPlannerButton";
+import { Link, Link as RouterLink } from "react-router-dom";
+import EditIcon from "@mui/icons-material/Edit";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import CancelIcon from "@mui/icons-material/Cancel";
+import { deleteRecipe } from "../../Services/recipeServices";
 
 function RecipesAdmin() {
   const [recipes, setRecipes] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     getRecipes();
@@ -22,10 +29,15 @@ function RecipesAdmin() {
     setRecipes(result);
   }
 
+  const deleteOneRecipe = async (id) => {
+    const query = await deleteRecipe(id);
+    getRecipes();
+  };
+
   function displayRecipes() {
     return recipes.map((r, idx) => {
       return (
-        <Grid item xs={12} sm={6} md={4} xl={3}>
+        <Grid item xs={12} sm={6} md={4} xl={3} key={r.id}>
           <Card
             key={idx}
             sx={{
@@ -48,8 +60,19 @@ function RecipesAdmin() {
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions>
-              <AddMenuPlannerButton selectedRecipe={r} />
+            <CardActions sx={{ justifyContent: "space-between" }}>
+              <Link to={`${r.id}`}>
+                <Tooltip title="Edit">
+                  <Button>
+                    <EditIcon sx={{ color: "black" }} />
+                  </Button>
+                </Tooltip>
+              </Link>
+              <Tooltip title="Delete">
+                <Button onClick={deleteOneRecipe(r.id)}>
+                  <CancelIcon sx={{ color: "black" }} />
+                </Button>
+              </Tooltip>
             </CardActions>
           </Card>
         </Grid>
@@ -59,12 +82,11 @@ function RecipesAdmin() {
 
   return (
     <>
-      <Tooltip title="Insert Recipe">
-        <Button onClick={() => navigate("/home/recipes/admin/add")}
-          sx={{ right: "10px", position: "absolute", border: "solid", borderColor: "black", }}>
-          <AddCircleOutlineIcon />
-        </Button>
-      </Tooltip>
+      <Link to= "/home/recipes/admin/add">
+      <Button sx={{right:"10px", position: "absolute", border:"solid", borderColor:"black", borderRadius:"100px", }}>
+        <AddCircleOutlineIcon/>
+      </Button>
+      </Link>
       <div style={{ width: "100%", height: "auto" }}>
         <Grid container sx={{ justifyContent: "start", flexWrap: "wrap" }}>
           {displayRecipes()}

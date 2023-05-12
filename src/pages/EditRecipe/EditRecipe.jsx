@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { updateRecipe } from '../../Services/recipeServices'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { getRecipe } from '../../Services/recipeServices'
 import { Button, Card, CardActions, CardContent, Grid, TextField, Typography } from '@mui/material'
 
@@ -12,10 +12,13 @@ function EditRecipe() {
     const [description, setDescription] = useState("")
     const [instruction, setInstruction] = useState("")
 
+    const navigate = useNavigate()
+
 const {id} = useParams()
 
     async function editRecipe() {
         await updateRecipe(id, name, img, description, instruction)
+        navigate('/home')
     }
 
     async function getOneRecipe() {

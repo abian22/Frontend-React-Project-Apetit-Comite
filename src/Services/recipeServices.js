@@ -55,10 +55,27 @@ async function deleteRecipe(id) {
     return result.data
 }
 
+async function updateRecipe(id, name, img, description, instruction) {
+    const result = await api.put(`/recipe/${id}`, {
+
+        name: name,
+        img: img,
+        description: description,
+        instruction: instruction
+    },
+        {
+            headers: {
+                token: localStorage.getItem('token')
+            }
+        })
+    return result.data
+}
+
 export {
     getAllRecipes,
     getRecipe,
     getRecipeByIngredient,
     getAllRecipesByName,
-    deleteRecipe
+    deleteRecipe,
+    updateRecipe
 }
