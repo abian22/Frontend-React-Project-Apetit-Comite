@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,10 +14,12 @@ import HeaderLogo from "../../assets/HEADER_LOGO.svg";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
+import { getProfile } from "../../Services/userServices";
 
 function Header() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
@@ -34,6 +36,15 @@ function Header() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const adminPages = [
+    {
+      title: "ADD NEW RECIPE",
+      fun: async () => {
+        navigate("/home/recipes/admin");
+      },
+    },
+  ];
 
   const pages = [
     {
@@ -60,12 +71,6 @@ function Header() {
         navigate("/home/search");
       },
     },
-    {
-      title: "ADD NEW RECIPE",
-      fun: async () => {
-        navigate("/home/recipes/admin");
-      },
-    },
   ];
 
   const settings = [
@@ -79,10 +84,21 @@ function Header() {
       title: "LOGOUT",
       fun: () => {
         localStorage.removeItem("token");
+        console.log(pages);
         navigate("/login");
       },
     },
   ];
+
+  useEffect(() => {
+    const myUser = async () => {
+      const result = await getProfile();
+      console.log(result);
+      setUser(result);
+    };
+
+    myUser();
+  }, []);
 
   return (
     <AppBar position="static" sx={{ background: "#FDDA04", color: "black" }}>
@@ -121,7 +137,6 @@ function Header() {
                 vertical: "bottom",
                 horizontal: "left",
               }}
-              keepMounted
               transformOrigin={{
                 vertical: "top",
                 horizontal: "left",
@@ -132,14 +147,20 @@ function Header() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page, idx) => (
-                <MenuItem key={idx} onClick={page.fun}>
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={page.fun}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
+              {user?.role === "admin" &&
+                adminPages.map((page) => (
+                  <MenuItem key={page} onClick={page.fun}>
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
+                ))}
             </Menu>
           </Box>
-          <div className="iconContainer" >
+          <div className="iconContainer">
             <img className="icon" src={HeaderLogo} />
           </div>
           <Typography
@@ -159,15 +180,26 @@ function Header() {
             }}
           ></Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page, idx) => (
+            {pages.map((page) => (
               <Button
-                key={idx}
+                key={page}
                 onClick={page.fun}
                 sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page.title}
               </Button>
             ))}
+
+            {user?.role === "admin" &&
+              adminPages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={page.fun}
+                  sx={{ my: 2, color: "black", display: "block" }}
+                >
+                  {page.title}
+                </Button>
+              ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -192,8 +224,8 @@ function Header() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting, idx) => (
-                <MenuItem key={idx} onClick={setting.fun}>
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={setting.fun}>
                   <Typography textAlign="center">{setting.title}</Typography>
                 </MenuItem>
               ))}
