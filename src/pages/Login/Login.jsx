@@ -44,7 +44,7 @@ export default function Login() {
 
   function render() {
     return (
-      <Card sx={{ width: "90%", backgroundColor: "#FFFFE0", border: "solid", borderRadius: "10px" }} raised={true}>
+      <Card sx={{ width: "90%", backgroundColor: "#FFFFE0", border:"2px solid", borderRadius: "10px" }} raised={true}>
         <CardHeader title="Login"></CardHeader>
 
         <CardContent>
@@ -91,7 +91,6 @@ export default function Login() {
           <Button
             onClick={() => navigate("/signUp")}
             size="small"
-            color="secondary"
             variant="contained"
             sx={{ marginRight: "1vw" }}
           >
@@ -101,7 +100,6 @@ export default function Login() {
           <Button
             onClick={() => onLogin()}
             size="small"
-            color="primary"
             variant="contained"
           >
             Login

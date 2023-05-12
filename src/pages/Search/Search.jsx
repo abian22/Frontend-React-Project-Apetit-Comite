@@ -25,7 +25,7 @@ export default function Search() {
         component="form"
         sx={{
           "& > :not(style)": { m: 1, width: "25ch" },
-          height: "10%",
+          height: "5%",
         }}
         noValidate
         autoComplete="on"
@@ -35,27 +35,28 @@ export default function Search() {
         <TextField
           id="outlined-basic"
           label="Search recipe"
-          placeholder='Search recipe'
+          placeholder="Search recipe"
           variant="outlined"
           onChange={(e) => setText(e.currentTarget.value)}
-          onKeyDown={(e) => { if (e.key === "Enter") handleSearch(); }}
-          sx={{ height: "10vh", lineHeight: "10vh" }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSearch();
+          }}
+          sx={{ height: "100px", lineHeight: "10vh" }}
         />
         <Button
           onClick={() => handleSearch()}
           variant="contained"
           sx={{
-            backgroundColor: "black",
+            backgroundColor: "#12BAD0",
             left: "50px",
             color: "white",
             display: "flex",
             top: "10px",
-            height: "5vh"
+            height: "5vh",
           }}
         >
           Search
         </Button>
-
       </Box>
 
       {/* {CARDS} */}

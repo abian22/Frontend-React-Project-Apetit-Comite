@@ -7,7 +7,7 @@ import Paper from "@mui/material/Paper";
 import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
-import { Button, Tooltip } from "@mui/material";
+import { Box, Button, Tooltip } from "@mui/material";
 import {
   addMenuPlanner,
   addRandomRecipe,
@@ -67,9 +67,16 @@ function AddMenuPlannerButton({ selectedRecipe, refreshFunction }) {
         variant="contained"
         ref={anchorRef}
         aria-label="split button"
+        sx={{justifyContent:"center"}}
       >
+       
         <Tooltip title="Add to Menu Planner">
-          <Button onClick={handleAddRecipeClick}>+ to MenuPlanner</Button>
+          <Button
+            sx={{ backgroundColor: "#12BAD0", display:"flex"}}
+            onClick={handleAddRecipeClick}
+          >
+            + to MenuPlanner
+          </Button>
         </Tooltip>
         <Tooltip title="Choose a day">
           <Button
@@ -78,8 +85,13 @@ function AddMenuPlannerButton({ selectedRecipe, refreshFunction }) {
             aria-expanded={open ? "true" : undefined}
             aria-label="add recipe"
             onClick={handleToggle}
-            sx={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
-          >
+            sx={{
+              justifyContent:"center", position:"relative",
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
+              backgroundColor: "#12BAD0",
+            }}
+            >
             {days[selectedIndex]}
             <ArrowDropDownIcon />
           </Button>

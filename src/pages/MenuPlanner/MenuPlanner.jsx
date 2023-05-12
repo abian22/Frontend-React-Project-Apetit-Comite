@@ -26,7 +26,6 @@ function MenuPlanner() {
   };
 
   const orderByDays = () => {
-    // console.log(myMenuPlanner);
     myMenuPlanner.sort((a, b) => {
       if (a.menu_planners.date < b.menu_planners.date) return -1;
       else if (a.menu_planners.date > b.menu_planners.date) return 1;
@@ -36,12 +35,17 @@ function MenuPlanner() {
 
   useEffect(() => {
     handleMenuPlanner();
-    // orderByDays();
   }, []);
 
   return (
     <>
-      <Grid container spacing={4} padding={3} paddingBottom={5}>
+      <Grid
+        item
+        container
+        spacing={4}
+        padding={3}
+        paddingBottom={5}
+      >
         <div
           style={{
             display: "flex",
@@ -50,7 +54,7 @@ function MenuPlanner() {
             width: "100%",
           }}
         >
-          <h1>Your Meal Planner</h1>
+          <h1>Your Meal Planner&nbsp;&nbsp;&nbsp;</h1>
           <AddMenuPlannerButton refreshFunction={handleMenuPlanner} />
         </div>
         {myMenuPlanner.map((recipe, idx) => (
@@ -60,12 +64,14 @@ function MenuPlanner() {
             xs={12}
             sm={12}
             md={12}
-            sx={{ display: "flex", justifyContent: "center" }}
+            minWidth={"100%"}
+            sx={{ display: "flex", width:"90%", justifyContent: "center" }}
           >
             <Card
               sx={{
                 width: { xl: "60%", lg: "60%", sm: "60%" },
                 maxWidth: "60%",
+                minWidth: "60%",
                 height: "110%",
                 display: "flex",
               }}
@@ -121,7 +127,7 @@ function MenuPlanner() {
                   <Tooltip title="Delete">
                     <Button
                       sx={{
-                        color: "black",
+                        color: "#ED3A53",
                         display: "flex",
                         position: "flex-end",
                         textAlign: "flex-end",

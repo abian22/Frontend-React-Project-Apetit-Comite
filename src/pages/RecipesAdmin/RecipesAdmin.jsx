@@ -64,13 +64,13 @@ function RecipesAdmin() {
               <Link to={`${r.id}`}>
                 <Tooltip title="Edit">
                   <Button>
-                    <EditIcon sx={{ color: "black" }} />
+                    <EditIcon sx={{ color: "12BAD0" }} />
                   </Button>
                 </Tooltip>
               </Link>
               <Tooltip title="Delete">
                 <Button onClick={() => deleteOneRecipe(r.id)}>
-                  <CancelIcon sx={{ color: "black" }} />
+                  <CancelIcon sx={{ color: "red" }} />
                 </Button>
               </Tooltip>
             </CardActions>
@@ -82,11 +82,21 @@ function RecipesAdmin() {
 
   return (
     <>
-      <Link to= "/home/recipes/admin/add">
-      <Button sx={{right:"10px", position: "absolute", border:"solid", borderColor:"black", borderRadius:"100px", }}>
-        <AddCircleOutlineIcon/>
-      </Button>
+      <Link to="/home/recipes/admin/add">
+        <Tooltip title="Add Recipe">
+          <Button
+            sx={{
+              right: "50%",
+              position:"absolute",
+              color: "#12BAD0",
+              marginTop:"10px"
+            }}
+          >
+            <AddCircleOutlineIcon />
+          </Button>
+        </Tooltip>
       </Link>
+      <br></br> <br></br>
       <div style={{ width: "100%", height: "auto" }}>
         <Grid container sx={{ justifyContent: "start", flexWrap: "wrap" }}>
           {displayRecipes()}
