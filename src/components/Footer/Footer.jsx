@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 export default function Footer() {
 
   return (
-    <Box
+   <Box
       sx={{
         display:"flex",
         width: "100%",
@@ -29,11 +29,10 @@ export default function Footer() {
               width: "120%",
               textAlign: "center",
               color: "black",
-              fontSize: "4%",
+              fontSize: "30%",
             }}
           >
-
-            <p>Follow us</p>
+          <p><b>FOLLOW US</b></p>
             <IconButton>
               <a href="https://www.facebook.com/">
                 <FacebookOutlinedIcon sx={{ color: "black" }} />
@@ -51,7 +50,7 @@ export default function Footer() {
             </IconButton>
             <p>
               2023 © Appetit Comite-SCE01 - Final Project | EU Privacy Policy
-            </p>
+            </p> 
           </Typography>
         </Toolbar>
       </AppBar>

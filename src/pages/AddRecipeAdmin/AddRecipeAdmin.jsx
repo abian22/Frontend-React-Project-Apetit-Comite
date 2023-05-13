@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button, Grid, TextField } from "@mui/material";
 import { addOneRecipeAdmin } from "../../Services/menuPlannerServices";
+import { useNavigate } from "react-router-dom";
 
 function AddRecipeAdmin() {
   const [name, setName] = useState("");
@@ -11,10 +12,13 @@ function AddRecipeAdmin() {
   const [description, setDescription] = useState("");
   const [instruction, setInstruction] = useState("");
 
+  const navigate = useNavigate()
+
   async function addRecipe() {
     const result = await addOneRecipeAdmin(name, img, description, instruction);
     alert("New recipe added");
     reset();
+    navigate('/home/recipes/admin')
   }
 
   const reset = () => {

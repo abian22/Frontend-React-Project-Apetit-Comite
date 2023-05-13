@@ -39,115 +39,117 @@ function MenuPlanner() {
 
   return (
     <>
-      <Grid
-        item
-        container
-        spacing={4}
-        padding={3}
-        paddingBottom={5}
+<Grid
+  item
+  container
+  spacing={4}
+  padding={3}
+  paddingBottom={5}
+>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+    }}
+  >
+    <h1>Your Meal Planner&nbsp;&nbsp;&nbsp;</h1>
+    <AddMenuPlannerButton refreshFunction={handleMenuPlanner} />
+  </div>
+  {myMenuPlanner.map((recipe, idx) => (
+    <Grid
+      key={idx}
+      item
+      xs={12}
+      sm={12}
+      md={12}
+      minWidth={320}
+      sx={{ display: "flex", width: "90%", justifyContent: "center" }}
+    >
+      <Card
+        sx={{
+          width: { xl: "60%", lg: "60%", sm: "60%" },
+          maxWidth: "50vw",
+          minWidth: "400px",
+          height: "110%",
+          display: "flex",
+          marginBottom: "20px",
+          position: "relative",
+        }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <h1>Your Meal Planner&nbsp;&nbsp;&nbsp;</h1>
-          <AddMenuPlannerButton refreshFunction={handleMenuPlanner} />
-        </div>
-        {myMenuPlanner.map((recipe, idx) => (
-          <Grid
-            key={idx}
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            minWidth={"100%"}
-            sx={{ display: "flex", width:"90%", justifyContent: "center" }}
+        <Box sx={{ display: "flex", height: "100%" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "50px",
+              padding: "10px",
+            }}
           >
-            <Card
-              sx={{
-                width: { xl: "60%", lg: "60%", sm: "60%" },
-                maxWidth: "60%",
-                minWidth: "60%",
-                height: "110%",
-                display: "flex",
-                marginBottom: "20px",
+            <Typography
+              variant="h5"
+              textAlign="center"
+              component="div"
+              width="120px"
+            >
+              {recipe.menu_planners.date}
+            </Typography>
+          </Box>
 
+          <Tooltip title="More details">
+            <CardMedia
+              component={RouterLink}
+              to={`/home/recipes/${recipe.id}`}
+              sx={{
+                height: 130,
+                maxWidth: 140,
+                minWidth: 140,
+                flexShrink: 0,
+                marginTop: "10px",
+                display: "flex",
+              }}
+              image={recipe.img}
+            />
+          </Tooltip>
+          <CardContent sx={{ flexGrow: 1, maxWidth: 200, minWidth: 200 }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom: "5px",
+                position:"absolute"
               }}
             >
-              <Box sx={{ display: "flex", height: "100%" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginTop: "50px",
-                    padding: "10px",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    textAlign="center"
-                    component="div"
-                    width="120px"
-                  >
-                    {recipe.menu_planners.date}
-                  </Typography>
-                </Box>
+              {recipe.name}
+            </Typography>
+          </CardContent>
+          <CardActions sx={{ flexDirection: "column", position: "absolute", bottom: 0, right: 0 }}>
+            <Tooltip title="Delete">
+              <Button
+                sx={{
+                  color: "#ED3A53",
+                  display: "flex",
+                  textAlign: "flex-end",
+                  alignContent: "flex-end",
+                  justifyContent: "flex-end",
+                  marginLeft: "0vw",
+                }}
+                onClick={(e) => deleteOneRecipeMenuPlanner(recipe.id)}
+              >
+                <CancelIcon />
+              </Button>
+            </Tooltip>
+          </CardActions>
+        </Box>
+      </Card>
+    </Grid>
+  ))}
+</Grid>
 
-                <Tooltip title="More details">
-                  <CardMedia
-                    component={RouterLink}
-                    to={`/home/recipes/${recipe.id}`}
-                    sx={{
-                      height: 130,
-                      width: 140,
-                      flexShrink: 0,
-                      marginTop: "10px",
-                      display: "flex",
-                    }}
-                    image={recipe.img}
-                  />
-                </Tooltip>
-                <CardContent>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      marginBottom: "5px",
-                    }}
-                  >
-                    {recipe.name}
-                  </Typography>
-                </CardContent>
-                <CardActions sx={{ flexDirection: "column", width: "30vw" }}>
-                  <Tooltip title="Delete">
-                    <Button
-                      sx={{
-                        color: "#ED3A53",
-                        display: "flex",
-                        position: "flex-end",
-                        textAlign: "flex-end",
-                        alignContent: "flex-end",
-                        justifyContent: "flex-end",
-                        marginLeft: "0vw",
-                      }}
-                      onClick={(e) => deleteOneRecipeMenuPlanner(recipe.id)}
-                    >
-                      <CancelIcon />
-                    </Button>
-                  </Tooltip>
-                </CardActions>
-              </Box>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
     </>
   );
 }
