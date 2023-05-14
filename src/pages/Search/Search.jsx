@@ -5,6 +5,7 @@ import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid
 import { useState } from 'react';
 import { getAllRecipesByName } from '../../Services/recipeServices';
 import { Link as RouterLink } from 'react-router-dom';
+import AddMenuPlannerButton from "../../components/AddMenuPlannerButton/AddMenuPlannerButton";
 import './Search.css'
 
 export default function Search() {
@@ -95,7 +96,7 @@ export default function Search() {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-
+              <AddMenuPlannerButton selectedRecipe={recipe} />
               <CardActions></CardActions>
             </Card>
           </Grid>
