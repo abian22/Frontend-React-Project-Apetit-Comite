@@ -48,7 +48,7 @@ function Recipe() {
             <br></br> <br></br>
             <b>Ingredients: </b>{ingredientRecipe.map(i => {
               return (
-                i.recipe_ingredient.quantity + i.recipe_ingredient.unit + ' de ' + i.name + ' '
+                i.recipe_ingredient.quantity + ' ' + i.recipe_ingredient.unit + ' of ' + i.name + ' '
               )
             })}
             <br></br><br></br>
