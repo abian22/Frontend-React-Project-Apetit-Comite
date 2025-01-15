@@ -18,7 +18,7 @@ import EditRecipe from "../pages/EditRecipe/EditRecipe";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/init",
     element: <Navigate to="/init" replace={true} />,
   },
   {
